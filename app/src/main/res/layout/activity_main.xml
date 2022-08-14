@@ -1,45 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".view.MainActivity"
+    tools:context=".main.MainActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<!--  Для фрагментов-->
+  <FrameLayout
+      android:id="@+id/containerMain"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
 
-    <Button
-        android:id="@+id/btnNumberOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="btn1"/>
-
-    <TextView
-        android:id="@+id/tvTextTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <Button
-        android:id="@+id/btnNumberTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="btn2"/>
-
-    <TextView
-        android:id="@+id/tvTextThree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btnNumberThree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="btn3"/>
-
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

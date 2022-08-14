@@ -1,6 +1,6 @@
-package com.home.newlessonthirdcourse.model
+package com.home.newlessonthirdcourse.repository.impl
 
-class CountersModel {
+class CountersRepository {
     private val counters = mutableListOf(1,1,1)
 
     fun getCurrent(position:Int):Int{ //FIXME("Для чего эту функцию создали?")
