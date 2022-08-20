@@ -1,25 +1,25 @@
 package com.home.newlessonthirdcourse
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.home.newlessonthirdcourse.main.OnRecycleIViewItemClickListener
 
-class UserAdapter(private val onItemClickListener:OnRecycleIViewItemClickListener) : RecyclerView.Adapter<UserAdapter.GithubUserViewHolder>() {
+class UserAdapter(private val onItemClickListener:OnRecycleIViewItemClickListener) : ListAdapter<GithubUser,UserAdapter.GithubUserViewHolder>(GithubUserItemCallback)
+     {
 
-    var users: List<GithubUser> = emptyList()
-        @SuppressLint("NotifyDataSetChanged")
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+    var users: List<GithubUser> = mutableListOf()
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GithubUserViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
-        return GithubUserViewHolder(view)
+        return  GithubUserViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_user,parent,false)
+        )
     }
 
     override fun onBindViewHolder(holder: GithubUserViewHolder, position: Int) {
@@ -39,6 +39,17 @@ class UserAdapter(private val onItemClickListener:OnRecycleIViewItemClickListene
                 onItemClickListener.onItemViewClick(item)
             }
         }
+    }
+
+}
+
+object GithubUserItemCallback : DiffUtil.ItemCallback<GithubUser>() {
+    override fun areContentsTheSame(oldItem: GithubUser, newItem: GithubUser): Boolean {
+        return oldItem == newItem
+    }
+
+    override fun areItemsTheSame(oldItem: GithubUser, newItem: GithubUser): Boolean {
+        return oldItem == newItem
     }
 }
 

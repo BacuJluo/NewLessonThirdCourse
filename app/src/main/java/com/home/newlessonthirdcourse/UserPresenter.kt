@@ -1,6 +1,7 @@
 package com.home.newlessonthirdcourse
 
 import android.os.Bundle
+import androidx.recyclerview.widget.DiffUtil
 import com.github.terrakok.cicerone.Router
 import com.home.newlessonthirdcourse.main.UserView
 import com.home.newlessonthirdcourse.repository.GithubRepository
@@ -15,7 +16,10 @@ class UserPresenter(
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        viewState.initList(repository.getUsers())
+        repository.getUsers().subscribe {
+            viewState.initList(it)
+            //viewState.hideLoading()
+        }
     }
 
     fun onBackPressed(): Boolean {

@@ -49,6 +49,8 @@ class UserFragment : MvpAppCompatFragment(), UserView, OnBackPressedListener{
             rvGithubUsers.layoutManager = LinearLayoutManager(requireContext())
             rvGithubUsers.adapter = adapter
         }
+
+        Consumer().subscribe()
     }
 
     override fun initList(list: List<GithubUser>) {

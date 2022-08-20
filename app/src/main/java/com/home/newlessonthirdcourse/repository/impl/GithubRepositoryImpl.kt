@@ -2,6 +2,7 @@ package com.home.newlessonthirdcourse.repository.impl
 
 import com.home.newlessonthirdcourse.GithubUser
 import com.home.newlessonthirdcourse.repository.GithubRepository
+import io.reactivex.rxjava3.core.Observable
 
 class GithubRepositoryImpl: GithubRepository {
 
@@ -20,7 +21,7 @@ class GithubRepositoryImpl: GithubRepository {
         GithubUser("DmitryWB")
     )
 
-    override fun getUsers(): List<GithubUser> {
-        return repositories
-    }
+    override fun getUsers(): Observable<List<GithubUser>> =  Observable.just(repositories)
+
+
 }
